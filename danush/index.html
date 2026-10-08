@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio of Dhanush K S - Full Stack Software Engineer. Featuring galaxy-themed architecture, interactive AI chat, cosmic web applications, and pixel art aesthetics.">
+  <meta name="keywords"
+    content="Dhanush K S, Software Engineer, Galaxy Portfolio, Full Stack Developer, TypeScript, Python, React, WebGL, AI">
+  <meta name="author" content="Dhanush K S">
+
+  <!-- Open Graph Social Metadata -->
+  <meta property="og:title" content="Dhanush K S | Cosmic Software Engineer Portfolio">
+  <meta property="og:description"
+    content="Navigating the digital cosmos, engineering stellar web applications & intelligent interstellar experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/danush_photo.jpg">
+
+  <title>Dhanush K S • Cosmic Software Engineer & Systems Architect</title>
+
+  <!-- Google Fonts: Press Start 2P for Pixel Art, Space Grotesk for Cosmic Headings, Inter for Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Dynamic Starfield Canvas Background -->
+  <canvas id="cosmic-starfield" aria-hidden="true"></canvas>
+
+  <!-- Ambient Blurred Nebulae -->
+  <div class="ambient-nebula-glow nebula-1" aria-hidden="true"></div>
+  <div class="ambient-nebula-glow nebula-2" aria-hidden="true"></div>
+
+  <!-- Mobile Top Header Bar with Hamburger Toggle -->
+  <header class="mobile-header-bar" aria-label="Mobile Navigation Bar">
+    <div class="brand-title">
+      <span class="brand-pixel-icon" style="width: 32px; height: 32px; font-size: 0.8rem;">D</span>
+      <span>DHANUSH.EXE</span>
+    </div>
+    <button id="mobile-nav-toggle" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+      ☰
+    </button>
+  </header>
+
+  <!-- =========================================================================
+       PROMPT 2: Vertical Navigation Bar (Left Side)
+       Accessible, responsive, pixel art aesthetic with links to all 8 required sections.
+       ========================================================================= -->
+  <aside id="sidebar-nav" class="sidebar-nav" role="navigation" aria-label="Main vertical navigation">
+    <!-- Brand / Status Header -->
+    <div class="nav-brand">
+      <div class="brand-avatar-thumb">
+        <img src="assets/danush_photo.jpg" alt="Dhanush K S" class="brand-avatar-img">
+      </div>
+      <div class="brand-info">
+        <div class="brand-title">
+          <span>DHANUSH K S</span>
+          <span class="brand-status-dot" title="Status: Online & Ready for Missions"></span>
+        </div>
+        <span class="brand-tagline">LVL.99 ARCHITECT</span>
+      </div>
+    </div>
+
+    <!-- 8 Required Navigation Links -->
+    <nav>
+      <ul class="nav-menu">
+        <li>
+          <a href="#hero" class="nav-link active" id="nav-home">
+            <span class="nav-icon" aria-hidden="true">🌌</span>
+            <span>Home</span>
+            <span class="nav-pixel-badge">01</span>
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="nav-link" id="nav-about">
+            <span class="nav-icon" aria-hidden="true">👾</span>
+            <span>About Me</span>
+            <span class="nav-pixel-badge">02</span>
+          </a>
+        </li>
+        <li>
+          <a href="#skills" class="nav-link" id="nav-skills">
+            <span class="nav-icon" aria-hidden="true">⚡</span>
+            <span>Skills</span>
+            <span class="nav-pixel-badge">03</span>
+          </a>
+        </li>
+        <li>
+          <a href="#timeline" class="nav-link" id="nav-timeline">
+            <span class="nav-icon" aria-hidden="true">⏳</span>
+            <span>Timeline</span>
+            <span class="nav-pixel-badge">04</span>
+          </a>
+        </li>
+        <li>
+          <a href="#projects" class="nav-link" id="nav-projects">
+            <span class="nav-icon" aria-hidden="true">🚀</span>
+            <span>Projects</span>
+            <span class="nav-pixel-badge">05</span>
+          </a>
+        </li>
+        <li>
+          <a href="#testimonials" class="nav-link" id="nav-testimonials">
+            <span class="nav-icon" aria-hidden="true">⭐</span>
+            <span>Testimonials</span>
+            <span class="nav-pixel-badge">06</span>
+          </a>
+        </li>
+        <li>
+          <a href="#chat" class="nav-link" id="nav-chat">
+            <span class="nav-icon" aria-hidden="true">🤖</span>
+            <span>Chat</span>
+            <span class="nav-pixel-badge">07</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link" id="nav-contact">
+            <span class="nav-icon" aria-hidden="true">📡</span>
+            <span>Contact</span>
+            <span class="nav-pixel-badge">08</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- PROMPT 1: Night Mode Toggle with CSS Media Query Support -->
+    <div class="nav-footer">
+      <div class="theme-toggle-container">
+        <span class="theme-toggle-label">
+          <span aria-hidden="true">🌓</span>
+          <span id="theme-toggle-text">Void (Dark)</span>
+        </span>
+        <button id="theme-toggle-btn" class="theme-switch-btn" aria-label="Toggle Night/Solar theme"
+          title="Toggle theme (Detects system media query by default)">
+          ☀️
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================= -->
+  <main class="main-layout" id="main-content">
+
+    <!-- =======================================================================
+         PROMPT 1: Hero Section with Galaxy Theme
+         Galaxy style design with provided background image, title, and tagline.
+         ======================================================================= -->
+    <section id="hero" class="hero-section" aria-label="Welcome Hero Section">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <div class="hero-status-pill">
+            <span class="brand-status-dot" aria-hidden="true"></span>
+            <span>AVAILABLE FOR INTERSTELLAR MISSIONS</span>
+          </div>
+          <h1 class="hero-title">
+            Hello, Star Traveler.<br>
+            I am <span class="gradient-text">Dhanush K S</span>.
+          </h1>
+          <p class="hero-tagline">
+            Navigating the digital cosmos as a <strong>Full Stack Software Engineer</strong>.
+            I engineer resilient distributed backends, ultra-fluid interfaces, and intelligent neural web systems.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-cosmic-primary" id="hero-btn-projects">
+              <span>Explore Projects</span>
+              <span aria-hidden="true">🚀</span>
+            </a>
+            <a href="#chat" class="btn-cosmic-secondary" id="hero-btn-chat">
+              <span>Talk to CosmoBot AI</span>
+              <span aria-hidden="true">💬</span>
+            </a>
+            <a href="#contact" class="btn-cosmic-secondary" id="hero-btn-contact">
+              <span>Initiate Contact</span>
+              <span aria-hidden="true">📡</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Portrait Image Showcase -->
+        <div class="hero-image-wrapper">
+          <div class="hero-portrait-frame">
+            <div class="portrait-orbit-ring" aria-hidden="true"></div>
+            <img src="assets/danush_photo.jpg" alt="Dhanush K S - Full Stack Software Engineer" class="hero-portrait-img">
+            <div class="hero-floating-badge badge-top">
+              <span class="badge-icon">⚡</span>
+              <span>Full-Stack Architect</span>
+            </div>
+            <div class="hero-floating-badge badge-bottom">
+              <span class="badge-icon">🪐</span>
+              <span>Open to Missions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span>Scroll Down</span>
+        <span>▼</span>
+      </div>
+    </section>
+
+    <div class="content-container">
+
+      <!-- =====================================================================
+           PROMPT 3: About Me Section
+           Profile image, clean minimalistic bio, career highlights, and interests.
+           ===================================================================== -->
+      <section id="about" class="portfolio-section" aria-label="About Me Section">
+        <div class="section-header">
+          <div class="section-pixel-tag">SYSTEM // 02</div>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Bridging computational engineering with immersive cosmic aesthetics.</p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-avatar-container">
+            <div class="avatar-frame">
+              <img src="assets/danush_photo.jpg" alt="Dhanush K S - Full Stack Software Engineer" class="avatar-img">
+            </div>
+            <div class="avatar-level-badge">DHANUSH K S • LEVEL 99</div>
+          </div>
+
+          <div class="about-bio-content">
+            <p class="about-bio-text">
+              I am a <strong>Software Engineer & Systems Architect</strong> passionate about building high-throughput,
+              fault-tolerant web applications. With an insatiable curiosity for astronomical physics and cybernetic
+              computing, I craft experiences that feel both delightfully nostalgic and fiercely futuristic.
+            </p>
+            <p class="about-bio-text">
+              Over the past 5+ years, I have architected low-latency microservices, scaled cloud telemetry pipelines
+              handling millions of data points per minute, and designed pixel-perfect user interfaces that users love
+              interacting with.
+            </p>
+            <p class="about-bio-text">
+              <strong>Personal Passions:</strong> Retro pixel art games, astrophotography, WebAssembly, compiling
+              compilers, and continuous learning in neural AI workflows.
+            </p>
+
+            <div class="about-highlights-grid">
+              <div class="highlight-box">
+                <span class="highlight-number">5+</span>
+                <span class="highlight-label">Years of Experience</span>
+              </div>
+              <div class="highlight-box">
+                <span class="highlight-number">40+</span>
+                <span class="highlight-label">Cosmic Missions Shipped</span>
+              </div>
+              <div class="highlight-box">
+                <span class="highlight-number">99.9%</span>
+                <span class="highlight-label">Systems Reliability</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PROMPT 4: Skills Section
+           Highlights core competencies (languages, frameworks, tools) with progress
+           bars, pixel art badges, subtle animations, and explanatory comments.
+           ===================================================================== -->
+      <section id="skills" class="portfolio-section" aria-label="Skills Section">
+        <div class="section-header">
+          <div class="section-pixel-tag">ARSENAL // 03</div>
+          <h2 class="section-title">Core Competencies</h2>
+          <p class="section-subtitle">High-caliber technical skills honed through rigorous real-world production
+            environments.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Category 1: Programming Languages -->
+          <!-- Represents the foundational computational grammar used to craft performant engines -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="category-icon" aria-hidden="true">💻</div>
+              <h3 class="category-title">Core Languages</h3>
+            </div>
+            <div class="skill-items-list">
+              <!-- TypeScript/JavaScript: Represents mastery of robust front-end & back-end asynchronous execution -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">TypeScript / Modern JS</span>
+                  <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="95%" role="progressbar" aria-valuenow="95" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- Python: Represents algorithmic data pipelines, automation, and AI integrations -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python (AsyncIO / FastAPI)</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="90%" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- Go & Rust: Represents low-latency concurrent systems and WebAssembly compilation -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Go & Rust (Wasm)</span>
+                  <span class="skill-percent">82%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="82%" role="progressbar" aria-valuenow="82" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- SQL & Data Modeling: Represents resilient relational schema design and query optimization -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">PostgreSQL / SQL</span>
+                  <span class="skill-percent">88%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="88%" role="progressbar" aria-valuenow="88" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Category 2: Frameworks & Web Architecture -->
+          <!-- Represents UI engineering and state-driven web ecosystems -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="category-icon" aria-hidden="true">⚛️</div>
+              <h3 class="category-title">Frameworks & Web</h3>
+            </div>
+            <div class="skill-items-list">
+              <!-- React & Next.js: Represents server-side rendering, component-driven architecture, and UI fluidity -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">React & Next.js</span>
+                  <span class="skill-percent">94%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="94%" role="progressbar" aria-valuenow="94" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- Node.js & Express: Represents scalable event-driven RESTful & WebSocket APIs -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Node.js / Express</span>
+                  <span class="skill-percent">92%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="92%" role="progressbar" aria-valuenow="92" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- Three.js / WebGL / Canvas: Represents 3D rendering and cosmic visual effects -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Three.js / WebGL / Canvas</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="85%" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- Modern Vanilla CSS: Represents design token systems, animations, and responsive layouts -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Modern CSS & Animations</span>
+                  <span class="skill-percent">96%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="96%" role="progressbar" aria-valuenow="96" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Category 3: Cloud, DevOps & AI -->
+          <!-- Represents infrastructure reliability, deployment pipelines, and neural intelligence integration -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="category-icon" aria-hidden="true">☁️</div>
+              <h3 class="category-title">Cloud, DevOps & AI</h3>
+            </div>
+            <div class="skill-items-list">
+              <!-- Docker & Kubernetes: Represents container orchestration and reproducible cloud deployments -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Docker & Containerization</span>
+                  <span class="skill-percent">88%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="88%" role="progressbar" aria-valuenow="88" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- AWS & Cloudflare: Represents distributed edge networks, serverless functions, and security -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">AWS / Cloudflare Edge</span>
+                  <span class="skill-percent">86%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="86%" role="progressbar" aria-valuenow="86" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- LLM & Vector Retrieval: Represents fine-tuned prompt pipelines, embeddings, and intelligent agents -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">LLM Integration & Vector DBs</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="90%" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+              <!-- Git & CI/CD: Represents automated testing pipelines and zero-downtime shipping -->
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Git & GitHub Actions CI/CD</span>
+                  <span class="skill-percent">94%</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-width="94%" role="progressbar" aria-valuenow="94" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PROMPT 5: Timeline Component (Beneath Skills Section)
+           Lists key events (education, major projects, career milestones).
+           Rounded cards with CSS transitions, starlight nodes, and hover effects.
+           ===================================================================== -->
+      <section id="timeline" class="portfolio-section" aria-label="Career and Education Timeline">
+        <div class="section-header">
+          <div class="section-pixel-tag">CHRONOLOGY // 04</div>
+          <h2 class="section-title">Milestone Timeline</h2>
+          <p class="section-subtitle">A chronological voyage of education, breakthrough projects, and engineering
+            leadership.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Timeline Event 1: Lead Engineer Milestone -->
+          <div class="timeline-item">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-date-badge">2024 — PRESENT</span>
+              <h3 class="timeline-role-title">Lead Cosmic Systems Architect</h3>
+              <p class="timeline-company">Nebula Labs Inc. • Remote</p>
+              <p class="timeline-desc">
+                Spearheading distributed systems design for planetary-scale telemetry services. Mentoring 8 engineers,
+                architected real-time WebSocket clustering, and slashed infrastructure latency by 42%.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Event 2: Major Project Breakthrough -->
+          <div class="timeline-item">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-date-badge">2023 — 2024</span>
+              <h3 class="timeline-role-title">Cosmos AI Engine Launch</h3>
+              <p class="timeline-company">Key Project Milestone</p>
+              <p class="timeline-desc">
+                Architected and deployed "Cosmos AI", an autonomous knowledge mapping platform leveraging vector
+                embeddings and multi-model agent networks to refactor legacy codebases autonomously.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Event 3: Senior Full Stack Engineer Milestone -->
+          <div class="timeline-item">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-date-badge">2021 — 2023</span>
+              <h3 class="timeline-role-title">Senior Full Stack Developer</h3>
+              <p class="timeline-company">Starlight Technologies</p>
+              <p class="timeline-desc">
+                Engineered interactive dashboards with Three.js and React. Built robust GraphQL & REST APIs in Node.js
+                and Go. Deployed resilient microservices onto Kubernetes clusters.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Event 4: Education & Foundational Project -->
+          <div class="timeline-item">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-date-badge">2017 — 2021</span>
+              <h3 class="timeline-role-title">B.S. in Computer Science & Engineering</h3>
+              <p class="timeline-company">University of Space & Computational Science</p>
+              <p class="timeline-desc">
+                Graduated with First Class Honors. Specialization in Distributed Operating Systems, Computer Graphics,
+                and Artificial Intelligence. Built an open-source 2D pixel physics simulation engine as capstone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PROMPT 6: Projects Section with Clickable Thumbnails
+           Clickable thumbnails that open detailed views/modals with project details.
+           Comments explain how each thumbnail connects to its project detail.
+           ===================================================================== -->
+      <section id="projects" class="portfolio-section" aria-label="Projects Showcase">
+        <div class="section-header">
+          <div class="section-pixel-tag">EXPEDITIONS // 05</div>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Click on any project thumbnail to launch an in-depth mission brief and
+            architecture breakdown.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- 
+            PROJECT 1: Aethelred Star Navigation (Nebula Cloud Telemetry)
+            Connection: The thumbnail has [data-project-id="aethelred-telemetry"].
+            When clicked, app.js retrieves this key from projectsData to populate the modal.
+          -->
+          <div class="project-card">
+            <div class="project-thumb-wrapper" data-project-id="aethelred-telemetry" role="button" tabindex="0"
+              aria-label="View Aethelred Star Navigation project details">
+              <img src="assets/project_nebula_cloud.jpg"
+                alt="Aethelred Star Navigation Nebula Cloud Telemetry interface" class="project-thumbnail">
+              <div class="project-overlay">
+                <span class="project-view-btn">VIEW MISSION BRIEF 🔍</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">WebGL</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+              <h3 class="project-title">Aethelred Star Navigation</h3>
+              <p class="project-snippet">
+                Cloud telemetry console streaming real-time orbital constellations and microservice latency data.
+              </p>
+              <div class="project-footer-action">
+                <button class="btn-open-detail" data-project-id="aethelred-telemetry">
+                  <span>Detailed View</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 
+            PROJECT 2: Pixel Synth Studio (Retro Game Engine)
+            Connection: The thumbnail has [data-project-id="pixel-synth-engine"].
+            When clicked, app.js retrieves this key from projectsData to populate the modal.
+          -->
+          <div class="project-card">
+            <div class="project-thumb-wrapper" data-project-id="pixel-synth-engine" role="button" tabindex="0"
+              aria-label="View Pixel Synth Studio project details">
+              <img src="assets/project_pixel_synth.jpg" alt="Pixel Synth Studio retro game editor interface"
+                class="project-thumbnail">
+              <div class="project-overlay">
+                <span class="project-view-btn">VIEW MISSION BRIEF 🔍</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">Rust</span>
+                <span class="tech-tag">WebAssembly</span>
+                <span class="tech-tag">Canvas</span>
+              </div>
+              <h3 class="project-title">Pixel Synth Studio</h3>
+              <p class="project-snippet">
+                In-browser 2D physics sandbox and sprite animator running at 60fps with WebAudio synth integration.
+              </p>
+              <div class="project-footer-action">
+                <button class="btn-open-detail" data-project-id="pixel-synth-engine">
+                  <span>Detailed View</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 
+            PROJECT 3: Cosmos AI (Neural Astrological Intelligence)
+            Connection: The thumbnail has [data-project-id="cosmos-ai-assistant"].
+            When clicked, app.js retrieves this key from projectsData to populate the modal.
+          -->
+          <div class="project-card">
+            <div class="project-thumb-wrapper" data-project-id="cosmos-ai-assistant" role="button" tabindex="0"
+              aria-label="View Cosmos AI project details">
+              <img src="assets/project_cosmic_ai.jpg" alt="Cosmos AI neural intelligence assistant interface"
+                class="project-thumbnail">
+              <div class="project-overlay">
+                <span class="project-view-btn">VIEW MISSION BRIEF 🔍</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenAI</span>
+                <span class="tech-tag">Pinecone</span>
+              </div>
+              <h3 class="project-title">Cosmos AI Assistant</h3>
+              <p class="project-snippet">
+                Autonomous knowledge agent mapping code logic into celestial neural networks with semantic search.
+              </p>
+              <div class="project-footer-action">
+                <button class="btn-open-detail" data-project-id="cosmos-ai-assistant">
+                  <span>Detailed View</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PROMPT 7: Embedded YouTube Video Section
+           Dedicated section serving as portfolio highlight / introduction.
+           Responsive CSS container, pixel art style bezel, and explanatory caption.
+           ===================================================================== -->
+      <section id="video-showcase" class="portfolio-section" aria-label="Portfolio Video Introduction">
+        <div class="section-header">
+          <div class="section-pixel-tag">TRANSMISSION // 06</div>
+          <h2 class="section-title">Developer Spotlight</h2>
+          <p class="section-subtitle">Visual introduction exploring cosmic architecture, modern development paradigms,
+            and system design.</p>
+        </div>
+
+        <div class="video-showcase-container">
+          <div class="video-monitor-frame">
+            <div class="monitor-top-bar">
+              <div class="monitor-dots" aria-hidden="true">
+                <span class="monitor-dot"></span>
+                <span class="monitor-dot"></span>
+                <span class="monitor-dot"></span>
+              </div>
+              <span>STREAM: COSMIC_DEV_INTRO.MP4 [1080P // 60FPS]</span>
+              <span>REC ●</span>
+            </div>
+
+            <!-- Responsive 16:9 Aspect Ratio Video Container -->
+            <div class="video-responsive-wrapper">
+              <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&rel=0&modestbranding=1"
+                title="Danush Software Engineer Portfolio Video Introduction"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="video-caption">
+              <div class="video-caption-icon" aria-hidden="true">📹</div>
+              <div class="video-caption-text">
+                <strong>Mission Overview: Deep Dive into Galactic Systems Engineering</strong>
+                This recorded transmission details the engineering principles behind full-stack cloud telemetry,
+                building reactive interfaces that withstand cosmic loads, and how pixel art aesthetics inspire elegant
+                code structure.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PROMPT 7: Testimonials Section
+           Card-like containers with subtle drop shadow, rounded corners, quotes,
+           and client feedback matching the overall galaxy design.
+           ===================================================================== -->
+      <section id="testimonials" class="portfolio-section" aria-label="Client Testimonials">
+        <div class="section-header">
+          <div class="section-pixel-tag">ENDORSEMENTS // 07</div>
+          <h2 class="section-title">Client & Peer Feedback</h2>
+          <p class="section-subtitle">What engineering leaders, founders, and collaborators say about working with
+            Danush.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="quote-icon" aria-hidden="true">“</div>
+            <p class="testimonial-text">
+              Danush completely transformed our mission telemetry pipeline. Not only did our API latency drop by over
+              40%, but the UI he crafted felt like something out of a futuristic space console. A truly exceptional
+              engineer.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">SR</div>
+              <div class="author-info">
+                <h4>Sarah Reynolds</h4>
+                <p>CTO at OrbitalStream Labs</p>
+                <div class="star-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon" aria-hidden="true">“</div>
+            <p class="testimonial-text">
+              Working with Danush was seamless. His deep understanding of TypeScript, WebGL, and microservices allowed
+              us to hit our release milestones weeks ahead of schedule. Plus, his aesthetic eye is unmatched.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">MK</div>
+              <div class="author-info">
+                <h4>Marcus Vance</h4>
+                <p>Product VP at CyberForge Studio</p>
+                <div class="star-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon" aria-hidden="true">“</div>
+            <p class="testimonial-text">
+              Rarely do you find an engineer who excels at both rock-solid backend infrastructure and mind-blowing
+              interactive frontend experiences. Danush consistently exceeds expectations on every milestone.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">AL</div>
+              <div class="author-info">
+                <h4>Aria Lin</h4>
+                <p>Lead AI Researcher at QuantumStar</p>
+                <div class="star-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PROMPT 8: Interactive Chat Section (AI Version of Portfolio Owner)
+           Chat window interface, input field, display area, simulated AI responses,
+           and clear comments indicating OpenAI API integration points.
+           ===================================================================== -->
+      <section id="chat" class="portfolio-section" aria-label="Interactive AI Chat with Danush">
+        <div class="section-header">
+          <div class="section-pixel-tag">NEURAL LINK // 08</div>
+          <h2 class="section-title">Talk to Danush AI</h2>
+          <p class="section-subtitle">Interact with an AI version of the portfolio owner. Ask questions about
+            experience, tech stack, or collaboration.</p>
+        </div>
+
+        <div class="chat-container">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="chat-avatar-info">
+              <img src="assets/danush_photo.jpg" alt="Danush AI avatar" class="chat-ai-avatar">
+              <div class="chat-ai-details">
+                <h4>CosmoBot • Danush AI</h4>
+                <span class="chat-status-indicator">
+                  <span class="chat-status-pulse"></span>
+                  Active on Frequency 440MHz
+                </span>
+              </div>
+            </div>
+            <div class="chat-api-note-badge">LLM SIMULATOR v2.4</div>
+          </div>
+
+          <!-- Message History Display Area -->
+          <div class="chat-messages" id="chat-messages" role="log" aria-live="polite">
+            <div class="chat-message bot">
+              <div class="msg-bubble">
+                Greetings, star traveler! 🛸 I am <strong>CosmoBot</strong>, the AI surrogate for Danush. Ask me about
+                my software experience, core competencies, featured projects, or how to get in touch!
+              </div>
+            </div>
+
+            <!-- Typing indicator -->
+            <div id="typing-indicator" class="typing-indicator" aria-hidden="true">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+            </div>
+          </div>
+
+          <!-- Quick Prompts Suggestions -->
+          <div class="chat-suggestions" aria-label="Suggested prompt questions">
+            <button class="suggestion-chip" data-prompt="What are your core skills?">What are your skills? ⚡</button>
+            <button class="suggestion-chip" data-prompt="Tell me about your featured projects">Tell me about projects
+              🚀</button>
+            <button class="suggestion-chip" data-prompt="What is your background and experience?">Your experience?
+              ⏳</button>
+            <button class="suggestion-chip" data-prompt="How can I hire or contact Danush?">How can I hire you?
+              📡</button>
+          </div>
+
+          <!-- Chat Input Bar -->
+          <form id="chat-form" class="chat-input-bar">
+            <input type="text" id="chat-input" class="chat-input-field"
+              placeholder="Transmit your message to Danush AI..." autocomplete="off" required
+              aria-label="Your message to Danush AI">
+            <button type="submit" class="chat-send-btn" id="chat-send-btn" aria-label="Send message">
+              <span>Send</span>
+              <span aria-hidden="true">▲</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           PROMPT 9: Contact Form with Email API Functionality
+           Name, email, message fields. High-contrast submit button. Confirmation message.
+           Comments indicating Resend API / Email backend integration point.
+           ===================================================================== -->
+      <section id="contact" class="portfolio-section" aria-label="Contact Section">
+        <div class="section-header">
+          <div class="section-pixel-tag">TRANSMIT // 09</div>
+          <h2 class="section-title">Initiate Contact</h2>
+          <p class="section-subtitle">Have a mission in mind or want to collaborate on an interstellar web system? Send
+            a transmission.</p>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-card">
+            <!-- Official Interstellar Social Coordinates -->
+            <div class="contact-channels-wrapper">
+              <span class="channels-title">INTERSTELLAR COMMUNICATIONS & PROFILES:</span>
+              <div class="contact-socials-grid">
+                <!-- GitHub Profile Link -->
+                <a href="https://github.com/dhanushckm18-sudo" target="_blank" rel="noopener noreferrer" class="contact-social-card" id="contact-link-github">
+                  <div class="social-icon-wrapper" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-tag">GITHUB REPOSITORY HUB</span>
+                    <h4 class="social-title">GitHub Profile</h4>
+                    <span class="social-handle">@dhanushckm18-sudo</span>
+                  </div>
+                  <span class="social-arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <!-- LinkedIn Profile Link -->
+                <a href="https://www.linkedin.com/in/dhanush-k-s-939b75397" target="_blank" rel="noopener noreferrer" class="contact-social-card" id="contact-link-linkedin">
+                  <div class="social-icon-wrapper" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-tag">LINKEDIN PROFESSIONAL</span>
+                    <h4 class="social-title">LinkedIn Profile</h4>
+                    <span class="social-handle">Dhanush K S</span>
+                  </div>
+                  <span class="social-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!--
+              EMAIL API INTEGRATION POINT:
+              To submit to an email backend such as Resend API or Formspree:
+              1. Add an action attribute (e.g. action="/api/send-email") or let app.js intercept via fetch().
+              2. Review js/app.js where the Resend API fetch snippet is documented.
+            -->
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contact-name" class="form-label">TRAVELLER NAME [REQUIRED]:</label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Commander Shepard"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">INTERSTELLAR EMAIL [REQUIRED]:</label>
+                <input type="email" id="contact-email" name="email" class="form-input"
+                  placeholder="e.g. shepherd@normandy.space" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">TRANSMISSION MESSAGE [REQUIRED]:</label>
+                <textarea id="contact-message" name="message" class="form-textarea"
+                  placeholder="Describe your project, mission timeline, or greetings..." required></textarea>
+              </div>
+
+              <!-- High Contrast Submit Button (Prominently visible against deep galaxy background) -->
+              <button type="submit" id="contact-submit-btn" class="btn-contact-submit">
+                <span>SEND TRANSMISSION</span>
+                <span aria-hidden="true">📡</span>
+              </button>
+            </form>
+
+            <!-- Confirmation message upon successful submission -->
+            <div id="contact-feedback" class="contact-feedback-banner" role="status" aria-live="polite">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+      <div class="content-container">
+        <div class="footer-social-links" style="display: flex; gap: 1.25rem; justify-content: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <a href="https://github.com/dhanushckm18-sudo" target="_blank" rel="noopener noreferrer" class="btn-cosmic-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.82rem;">
+            <span>GitHub (@dhanushckm18-sudo)</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/dhanush-k-s-939b75397" target="_blank" rel="noopener noreferrer" class="btn-cosmic-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.82rem;">
+            <span>LinkedIn (Dhanush K S)</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <p class="footer-text">
+          Designed & Architected by <strong>Dhanush K S</strong> • Built with Vanilla CSS, Canvas & Pure JS.
+        </p>
+        <p class="footer-pixel-note">
+          &copy; 2026 DHANUSH K S • ALL TRANSMISSIONS LOGGED ACROSS THE GALAXY
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- =========================================================================
+       PROJECT DETAILS MODAL DIALOG
+       Launched when clicking any project thumbnail from the Projects Section.
+       ========================================================================= -->
+  <div id="project-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="project-modal">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close project details">✕</button>
+      <div class="modal-media-wrap">
+        <img id="modal-image" src="assets/project_nebula_cloud.jpg" alt="Detailed project preview">
+      </div>
+      <div class="modal-content">
+        <span id="modal-category" class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Category</span>
+        <h3 id="modal-title" class="modal-title">Project Title</h3>
+        <p id="modal-desc" class="modal-desc">Detailed project description goes here...</p>
+        <div id="modal-tags" class="project-tags" style="margin: 1.25rem 0;"></div>
+        <div class="modal-actions">
+          <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-cosmic-primary">
+            <span>Live Mission Demo</span>
+            <span aria-hidden="true">🚀</span>
+          </a>
+          <a id="modal-code-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-cosmic-secondary">
+            <span>Source Code</span>
+            <span aria-hidden="true">💻</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
